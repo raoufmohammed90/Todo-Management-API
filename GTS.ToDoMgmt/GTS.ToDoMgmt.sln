@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTS.ToDoMgmt.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTS.ToDoMgmt.Infrastructure", "GTS.ToDoMgmt.Infrastructure\GTS.ToDoMgmt.Infrastructure.csproj", "{2B940D6A-5591-4692-AC2E-7B9D858BD157}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTS.TodoMgmt.WebApi", "GTS.TodoMgmt.WebApi\GTS.TodoMgmt.WebApi.csproj", "{35461F26-6786-406B-BB60-81ABCB2EAEC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{2B940D6A-5591-4692-AC2E-7B9D858BD157}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B940D6A-5591-4692-AC2E-7B9D858BD157}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B940D6A-5591-4692-AC2E-7B9D858BD157}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35461F26-6786-406B-BB60-81ABCB2EAEC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35461F26-6786-406B-BB60-81ABCB2EAEC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35461F26-6786-406B-BB60-81ABCB2EAEC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35461F26-6786-406B-BB60-81ABCB2EAEC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +43,7 @@ Global
 		{E55F013B-B450-4836-B4E1-9DC11F2C4383} = {BF13FBE2-29F0-483B-83AA-4A41305F5591}
 		{7B615A42-69D7-41A0-87B6-6F98972B5816} = {BF13FBE2-29F0-483B-83AA-4A41305F5591}
 		{2B940D6A-5591-4692-AC2E-7B9D858BD157} = {BF13FBE2-29F0-483B-83AA-4A41305F5591}
+		{35461F26-6786-406B-BB60-81ABCB2EAEC2} = {BF13FBE2-29F0-483B-83AA-4A41305F5591}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ACBC3300-E880-4F5D-87E0-8C6C5A813D28}

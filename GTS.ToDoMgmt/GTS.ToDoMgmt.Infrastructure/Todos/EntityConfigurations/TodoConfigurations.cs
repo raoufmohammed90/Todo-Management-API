@@ -19,15 +19,17 @@ namespace GTS.ToDoMgmt.Infrastructure.Todos.EntityConfigurations
                 .IsRequired(false);
 
             builder.Property(todo => todo.Status)
+                .IsRequired(true)
                 .HasConversion(
                     status => status.ToString(),
                     status => Enum.Parse<TodoStatus>(status)
                 );
 
-            builder.Property(todo => todo.Status)
+            builder.Property(todo => todo.Priority)
+                .IsRequired(true)
                 .HasConversion(
                     priority => priority.ToString(),
-                    priority => Enum.Parse<TodoStatus>(priority)
+                    priority => Enum.Parse<TodoPriority>(priority)
                 );
         }
     }

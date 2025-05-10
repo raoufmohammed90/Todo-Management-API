@@ -17,10 +17,10 @@ namespace GTS.ToDoMgmt.Application.Todos.DeleteTodo
         }
         public async Task Handle(DeleteTodoCommand request, CancellationToken cancellationToken)
         {
-            bool isDeleted = _todoRepository.Delete(request.TodoId, cancellationToken);
+            bool isDeleted = _todoRepository.Delete(request.TodoId);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
             if (!isDeleted)
-                throw new DeleteFailedException(request.TodoId);
+                throw new DeleteFailedException(request.TodoId, "Todo not found");
         }
     }
 }

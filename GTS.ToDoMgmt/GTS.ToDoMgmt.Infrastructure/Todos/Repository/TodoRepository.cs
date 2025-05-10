@@ -1,5 +1,6 @@
 ﻿using GTS.ToDoMgmt.Domain.Todos;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace GTS.ToDoMgmt.Infrastructure.Todos.Repository
 {
@@ -12,12 +13,12 @@ namespace GTS.ToDoMgmt.Infrastructure.Todos.Repository
             _todoManagementDbContext = todoManagementDbContext;
         }
 
-        public async Task CreateAsync(Todo todo, CancellationToken cancellationToken = default)
+        public void Create(Todo todo)
         {
-            await _todoManagementDbContext.Todos.AddAsync(todo);
+            _todoManagementDbContext.Todos.Add(todo);
         }
 
-        public bool Delete(Guid id, CancellationToken cancellationToken = default)
+        public bool Delete(Guid id)
         {
             var entity = _todoManagementDbContext.Todos.FirstOrDefault(e => e.Id == id);
             bool entityFound = entity != null;
@@ -26,13 +27,18 @@ namespace GTS.ToDoMgmt.Infrastructure.Todos.Repository
             return entityFound;
         }
 
-        public async Task<IEnumerable<Todo>?> GetByFilterAsync(ICollection<Func<Todo, bool>> filters, CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<Todo>?> GetByFilterAsync(ICollection<Expression<Func<Todo, bool>>> filters, CancellationToken cancellationToken = default)
         {
-            var query = _todoManagementDbContext.Todos.AsQueryable();
-            foreach (var filter in filters)
+            if(!filters.Any())
+                return _todoManagementDbContext.Todos.ToList();
+
+            var query = _todoManagementDbContext.Todos.Where(filters.First());
+
+            foreach (var filter in filters.Skip(1))
             {
-                query.Union(_todoManagementDbContext.Todos.Where(filter));
+                query = query.Union(_todoManagementDbContext.Todos.Where(filter));
             }
+
             IEnumerable<Todo>? todos = await query.ToListAsync(cancellationToken);
             return todos;
         }

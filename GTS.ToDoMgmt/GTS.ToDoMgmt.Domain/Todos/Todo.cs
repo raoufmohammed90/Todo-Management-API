@@ -36,6 +36,40 @@ namespace GTS.ToDoMgmt.Domain.Todos
             };
             return todoEntity;
         }
+        public void Update(
+            string? title = null,
+            TodoStatus? status = null,
+            TodoPriority? priority = null,
+            string? description = null,
+            DateTime? dueDate = null
+            )
+        {
+            bool isUpdated = false;
+
+            if (title != null) {
+                Title = title;
+                isUpdated = true;
+            }
+            if (status != null) {
+                Status = (TodoStatus)status;
+                isUpdated = true;
+            }
+            if (priority != null)
+            {
+                Priority = (TodoPriority)priority;
+                isUpdated = true;
+            }
+            if (description != null) {
+                Description = description;
+                isUpdated = true;
+            }
+            if (dueDate != null) {
+                DueDate = dueDate;
+                isUpdated = true;
+            }
+            if (isUpdated)
+                LastModifiedDate = DateTime.UtcNow;
+        }
         public void Complete()
         {
             Status = TodoStatus.Completed;

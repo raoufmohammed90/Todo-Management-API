@@ -1,9 +1,9 @@
 ﻿namespace GTS.ToDoMgmt.Application.Exceptions.Application
 {
-    public class DeleteFailedException : ApplicationException
+    public class DeleteFailedException : UseCaseException
     {
-        public DeleteFailedException(Guid todoId, Exception innerException = null) 
-            : base($"Todo {todoId} not found and cannot be deleted.", innerException)
+        public DeleteFailedException(Guid todoId, string reason,Exception innerException = null)
+            : base($"Failed to delete Todo : {todoId}, Reason: {reason}.", innerException)
         {
         }
     }

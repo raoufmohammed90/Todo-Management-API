@@ -20,7 +20,7 @@ namespace GTS.ToDoMgmt.Application.Todos.CreateTodo
         {
             Todo todo = _createTodoFactory.GetTodoEntity(request.Todo);
 
-            await _todoRepository.CreateAsync(todo, cancellationToken);
+            _todoRepository.Create(todo);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
         }
     }

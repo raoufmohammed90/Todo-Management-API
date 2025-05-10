@@ -26,6 +26,7 @@ namespace GTS.ToDoMgmt.Application.Todos.CompleteTodo
                 throw new UnableToCompleteTodoException("it is already completed.");
 
             todo.Complete();
+            await _unitOfWork.SaveChangesAsync();
         }
     }
 }

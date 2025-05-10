@@ -2,7 +2,7 @@
 {
     public abstract class BaseEntity
     {
-        private readonly ICollection<IDomainEvent> _domainEvents;
+        private readonly ICollection<IDomainEvent> _domainEvents = [];
 
         public Guid Id { get; set; }
         public DateTime CreatedDate { get; set; }

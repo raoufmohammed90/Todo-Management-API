@@ -1,6 +1,8 @@
-﻿namespace GTS.ToDoMgmt.Domain.Abstractions
+﻿using MediatR;
+
+namespace GTS.ToDoMgmt.Domain.Abstractions
 {
-    public interface IDomainEvent
+    public interface IDomainEvent : INotification
     {
     }
 }
